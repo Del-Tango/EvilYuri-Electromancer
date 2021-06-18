@@ -8,69 +8,196 @@ cat<<EOF
 Evil Yuri - (v1.0 Electromancer)
 Action Bills Of Materials
 
-Connect-WiFi              - eyv1021essidpass
-Disconnect-WiFi           - eyv1022y
-Display-Access-Points     - eyv1023
-Compile-Evil-Minion       - eyv103n
-Compile-Hypnotik-Payload  - eyv103n
-Rename-Binary-Minions     - eyv10331file
-Remove-Binary-Minions     - eyv10332file
-Export-Binary-Minions     - eyv10333filedir
-Rename-Binary-Payloads    - eyv10341file
-Remove-Binary-Payloads    - eyv10342file
-Export-Binary-Payloads    - eyv10343filedir
-Setup-Payload-FTP-Server  - eyv10111n
-Start-Minion-Listener     - eyv10112n
-Deploy-Evil-Minion        - eyv10113n
-Register-Conscripts       - eyv10114n
-Search-Conscripts         - eyv10115n
-Deploy-Hypnotik-Payload   - eyv10121n
-Group-Conscripts          - eyv101221n
-Search-Conscript-Groups   - eyv101222n
-Create-Conscript-Group    - eyv101223n
-Delete-Conscript-Group    - eyv101224n
-Mission-Instruction       - eyv10131n
-Conscript-Commander       - eyv10132n
-Archive-Conscripts        - eyv101331n
-Search-Archive            - eyv101332n
-Delete-Archive            - eyv101333n
-HELP                      - eyv1014cargo
-Self-Destruct             - eyv104y
-Display-Tail              - eyv1051
-Display-Head              - eyv1052
-Display-More              - eyv1053
-Clear-Log                 - eyv1054
-Set-Safety-Flag           - eyv1061y
-Set-Foreground-Flag       - eyv1062y
-Set-Papertrail-Flag       - eyv1063y
-Set-Conscript-User        - eyv1064uname
-Set-Conscript-Key         - eyv1065key
-Set-Conscript-Identifiers - eyv1066csvids
-Set-Conscript-Addresses   - eyv1067csvaddr
-Set-Conscript-Archive     - eyv1068aname
-Set-Mission-Instruction   - eyv1069cmd
-Set-Port-Number           - eyv10610port
-Set-Protocol              - eyv10611proto
-Set-Evil-Minion           - eyv10612file
-Set-Hypnotik-Payload      - eyv10613file
-Set-Group-Labels          - eyv10614csvgrps
-Set-Group-Size            - eyv10615gsize
-Set-Target                - eyv10617target
-Set-Search-Criteria       - eyv10618criteria
-Set-FTP-Template          - eyv10619file
-Set-FTP-Address           - eyv10620ipv4
-Set-Minion-Directory      - eyv10621dir
-Set-Payload-Directory     - eyv10622dir
-Set-Template-Directory    - eyv10623dir
-Set-Log-File              - eyv10624file
-Set-Log-Lines             - eyv10625count
-Set-Victim-Directory      - eyv10626dir
-Set-Conscript-Index       - eyv10627file
-Set-Archive-Index         - eyv10628file
-Set-Group-Index           - eyv10629file
-Set-Source-File           - eyv10630file
-Set-Out-File              - eyv10631file
-Set-Temporary-File        - eyv10632file
-Install-Dependencies      - eyv10633y
+    Connect-WiFi              - eyv1021essidpass
+        (*) -> (2) -> (1 + <wifi-essid> + <wifi-password>)
+
+    Disconnect-WiFi           - eyv1022y
+        (*) -> (2) -> (2 + y)
+
+    Display-Access-Points     - eyv1023
+        (*) -> (2) -> (3)
+
+    Compile-Evil-Minion       - eyv1031n
+        (*) -> (3) -> (1 + n)
+
+    Compile-Hypnotik-Payload  - eyv1032n
+        (*) -> (3) -> (2 + n)
+
+    Rename-Binary-Minions     - eyv10331file
+        (*) -> (3) -> (3) -> (1 + <minion-file> + <new-name>)
+
+    Remove-Binary-Minions     - eyv10332file
+        (*) -> (3) -> (3) -> (2 + <minion-file>)
+
+    Export-Binary-Minions     - eyv10333filedir
+        (*) -> (3) -> (3) -> (3 + <minion-file> + <dir-path>)
+
+    Rename-Binary-Payloads    - eyv10341file
+        (*) -> (3) -> (4) -> (1 + <payload-file> + <new-name>)
+
+    Remove-Binary-Payloads    - eyv10342file
+        (*) -> (3) -> (4) -> (2 + <payload-file>)
+
+    Export-Binary-Payloads    - eyv10343filedir
+        (*) -> (3) -> (4) -> (3 + <payload-file> + <dir-path>)
+
+    Setup-Payload-FTP-Server  - eyv10111n
+        (*) -> (1) -> (1) -> (1 + n)
+
+    Start-Minion-Listener     - eyv10112n
+        (*) -> (1) -> (1) -> (2 + n)
+
+    Deploy-Evil-Minion        - eyv10113n
+        (*) -> (1) -> (1) -> (3 + n)
+
+    Register-Conscripts       - eyv10114n
+        (*) -> (1) -> (1) -> (4 + n)
+
+    Search-Conscripts         - eyv10115n
+        (*) -> (1) -> (1) -> (5 + n)
+
+    Deploy-Hypnotik-Payload   - eyv10121n
+        (*) -> (1) -> (2) -> (1 + n)
+
+    Group-Conscripts          - eyv101221n
+        (*) -> (1) -> (2) -> (2) -> (1 + n)
+
+    Search-Conscript-Groups   - eyv101222n
+        (*) -> (1) -> (2) -> (2) -> (2 + n)
+
+    Create-Conscript-Group    - eyv101223n
+        (*) -> (1) -> (2) -> (2) -> (3 + n)
+
+    Delete-Conscript-Group    - eyv101224n
+        (*) -> (1) -> (2) -> (2) -> (4 + n)
+
+    Mission-Instruction       - eyv10131n
+        (*) -> (1) -> (3) -> (1 + n)
+
+    Conscript-Commander       - eyv10132n
+        (*) -> (1) -> (3) -> (2 + n)
+
+    Archive-Conscripts        - eyv101331n
+        (*) -> (1) -> (3) -> (3) -> (1 + n)
+
+    Search-Archive            - eyv101332n
+        (*) -> (1) -> (3) -> (3) -> (2 + n)
+
+    Delete-Archive            - eyv101333n
+        (*) -> (1) -> (3) -> (3) -> (3 + n)
+
+    HELP                      - eyv1014cargo
+        (*) -> (1) -> (4 + <cargo-script>)
+
+    Self-Destruct             - eyv104y
+        (*) -> (4 + y)
+
+    Display-Tail              - eyv1051
+        (*) -> (5) -> (1)
+
+    Display-Head              - eyv1052
+        (*) -> (5) -> (2)
+
+    Display-More              - eyv1053
+        (*) -> (5) -> (3)
+
+    Clear-Log                 - eyv1054
+        (*) -> (5) -> (4)
+
+    Set-Safety-Flag           - eyv1061y
+        (*) -> (6) -> (1 + y)
+
+    Set-Foreground-Flag       - eyv1062y
+        (*) -> (6) -> (2 + y)
+
+    Set-Papertrail-Flag       - eyv1063y
+        (*) -> (6) -> (3 + y)
+
+    Set-Conscript-User        - eyv1064uname
+        (*) -> (6) -> (4 + <user-name>)
+
+    Set-Conscript-Key         - eyv1065key
+        (*) -> (6) -> (5 + (<conscript-password> | <path-to-ssh-key>))
+
+    Set-Conscript-Identifiers - eyv1066csvids
+        (*) -> (6) -> (6 + <conscript-ids>)
+
+    Set-Conscript-Addresses   - eyv1067csvaddr
+        (*) -> (6) -> (7 + <ipv4-addresses>)
+
+    Set-Conscript-Archive     - eyv1068aname
+        (*) -> (6) -> (8 + <archive-label>)
+
+    Set-Mission-Instruction   - eyv1069cmd
+        (*) -> (6) -> (9 + <command-to-execute>)
+
+    Set-Port-Number           - eyv10610port
+        (*) -> (6) -> (10 + <port-number>)
+
+    Set-Protocol              - eyv10611proto
+        (*) -> (6) -> (11 + <protocol>)
+
+    Set-Evil-Minion           - eyv10612file
+        (*) -> (6) -> (12 + <minion-file>)
+
+    Set-Hypnotik-Payload      - eyv10613file
+        (*) -> (6) -> (13 + <payload-file>)
+
+    Set-Group-Labels          - eyv10614csvgrps
+        (*) -> (6) -> (14 + <group-labels>)
+
+    Set-Group-Size            - eyv10615gsize
+        (*) -> (6) -> (15 + <group-size>)
+
+    Set-Target                - eyv10616target
+        (*) -> (6) -> (16 + <action-target>)
+
+    Set-Search-Criteria       - eyv10617criteria
+        (*) -> (6) -> (17 + <search-criteria>)
+
+    Set-FTP-Template          - eyv10618file
+        (*) -> (6) -> (18 + <template-config-file>)
+
+    Set-FTP-Address           - eyv10619ipv4
+        (*) -> (6) -> (19 + <FTP-server-ipv4-address>)
+
+    Set-Minion-Directory      - eyv10620dir
+        (*) -> (6) -> (20 + <directory-path>)
+
+    Set-Payload-Directory     - eyv10621dir
+        (*) -> (6) -> (21 + <directory-path>)
+
+    Set-Template-Directory    - eyv10622dir
+        (*) -> (6) -> (22 + <directory-path>)
+
+    Set-Log-File              - eyv10623file
+        (*) -> (6) -> (23 + <file-path>)
+
+    Set-Log-Lines             - eyv10624lines
+        (*) -> (6) -> (24 + <line-count>)
+
+    Set-Victim-Directory      - eyv10625dir
+        (*) -> (6) -> (25 + <directory-path>)
+
+    Set-Conscript-Index       - eyv10626file
+        (*) -> (6) -> (26 + <file-path>)
+
+    Set-Archive-Index         - eyv10627file
+        (*) -> (6) -> (27 + <file-path>)
+
+    Set-Group-Index           - eyv10628file
+        (*) -> (6) -> (28 + <file-path>)
+
+    Set-Source-File           - eyv10629file
+        (*) -> (6) -> (29 + <file-path>)
+
+    Set-Out-File              - eyv10630file
+        (*) -> (6) -> (30 + <file-path>)
+
+    Set-Temporary-File        - eyv10631file
+        (*) -> (6) -> (31 + <file-path>)
+
+    Install-Dependencies      - eyv10632y
+        (*) -> (6) -> (32 + y)
 
 EOF
