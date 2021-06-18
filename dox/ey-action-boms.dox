@@ -1,0 +1,76 @@
+#!/bin/bash
+#
+# Regards, the Alveare Solutions society.
+#
+
+cat<<EOF
+
+Evil Yuri - (v1.0 Electromancer)
+Action Bills Of Materials
+
+Connect-WiFi              - eyv1021essidpass
+Disconnect-WiFi           - eyv1022y
+Display-Access-Points     - eyv1023
+Compile-Evil-Minion       - eyv103n
+Compile-Hypnotik-Payload  - eyv103n
+Rename-Binary-Minions     - eyv10331file
+Remove-Binary-Minions     - eyv10332file
+Export-Binary-Minions     - eyv10333filedir
+Rename-Binary-Payloads    - eyv10341file
+Remove-Binary-Payloads    - eyv10342file
+Export-Binary-Payloads    - eyv10343filedir
+Setup-Payload-FTP-Server  - eyv10111n
+Start-Minion-Listener     - eyv10112n
+Deploy-Evil-Minion        - eyv10113n
+Register-Conscripts       - eyv10114n
+Search-Conscripts         - eyv10115n
+Deploy-Hypnotik-Payload   - eyv10121n
+Group-Conscripts          - eyv101221n
+Search-Conscript-Groups   - eyv101222n
+Create-Conscript-Group    - eyv101223n
+Delete-Conscript-Group    - eyv101224n
+Mission-Instruction       - eyv10131n
+Conscript-Commander       - eyv10132n
+Archive-Conscripts        - eyv101331n
+Search-Archive            - eyv101332n
+Delete-Archive            - eyv101333n
+HELP                      - eyv1014cargo
+Self-Destruct             - eyv104y
+Display-Tail              - eyv1051
+Display-Head              - eyv1052
+Display-More              - eyv1053
+Clear-Log                 - eyv1054
+Set-Safety-Flag           - eyv1061y
+Set-Foreground-Flag       - eyv1062y
+Set-Papertrail-Flag       - eyv1063y
+Set-Conscript-User        - eyv1064uname
+Set-Conscript-Key         - eyv1065key
+Set-Conscript-Identifiers - eyv1066csvids
+Set-Conscript-Addresses   - eyv1067csvaddr
+Set-Conscript-Archive     - eyv1068aname
+Set-Mission-Instruction   - eyv1069cmd
+Set-Port-Number           - eyv10610port
+Set-Protocol              - eyv10611proto
+Set-Evil-Minion           - eyv10612file
+Set-Hypnotik-Payload      - eyv10613file
+Set-Group-Labels          - eyv10614csvgrps
+Set-Group-Size            - eyv10615gsize
+Set-Target                - eyv10617target
+Set-Search-Criteria       - eyv10618criteria
+Set-FTP-Template          - eyv10619file
+Set-FTP-Address           - eyv10620ipv4
+Set-Minion-Directory      - eyv10621dir
+Set-Payload-Directory     - eyv10622dir
+Set-Template-Directory    - eyv10623dir
+Set-Log-File              - eyv10624file
+Set-Log-Lines             - eyv10625count
+Set-Victim-Directory      - eyv10626dir
+Set-Conscript-Index       - eyv10627file
+Set-Archive-Index         - eyv10628file
+Set-Group-Index           - eyv10629file
+Set-Source-File           - eyv10630file
+Set-Out-File              - eyv10631file
+Set-Temporary-File        - eyv10632file
+Install-Dependencies      - eyv10633y
+
+EOF
