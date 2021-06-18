@@ -1,0 +1,170 @@
+_______________________________________________________________________________
+
+# Evil Yuri - v.Electromancer - TODO List -
+_______________________________________________________________________________
+
+[ NOTE ]: Task Map Bullet Notation -
+
+    [ ] Stage0 - Planned
+    [.] Stage1 - Working on
+    [:] Stage2 - Significant progress
+    [*] Stage3 - Functional POC
+    [o] Stage4 - Prototype
+    [O] Stage5 - Testing Phase
+    [x] Stage6 - Task Complete
+    [-] Stage! - Task Canceled
+_______________________________________
+
+- HYpnotiK Payload - Cargo -
+
+    * [ NOTE ]: HYpnotiK should be deployed at the same path as the Evil Minion.
+
+    * Actions
+        [x] Remove Minion Anchor File
+        [x] Attempt Priviledge Escalation
+        [x] Open Back Door
+        [x] Attempt User Creation
+        [x] Format Phone Home Signal - Store in buffer
+        [x] Issue Phone Home Signal
+        [x] Attempt Process Cloak
+        [x] Attempt Set Boot INIT
+        [x] Attempt Start ssh server
+        [x] Install dependencies
+        [x] Generate Raw Backdoor Script
+
+- Evil Minion - Cargo -
+
+    * Actions
+        [x] Open Back Door
+        [x] Scan Victim Machine
+        [x] Format Phone Home Signal - Store in buffer
+        [x] Issue Phone Home Signal
+        [x] Create Anchor File At INIT
+        [x] Start Anchor Watchdog
+            [x] Self Destruct If No Anchor File Found
+            [x] Remove Generated Raw Backdoor Script
+        [x] Attempt Set Boot INIT
+        [x] Generate Raw Backdoor Script
+
+- Evil Yuri - CLI -
+
+    * Structure
+        [x] Config file
+        [x] Init file
+        [x] Log file
+        [x] Cargo file
+        [x] Payloads
+        [x] Minions
+        [ ] Dox
+
+    * Menu Controllers:
+        [x] Evil Yuri
+            [x] Stage1
+                [x] Setup FTP Server
+                [x] Start Minion Listener
+                [x] Deploy Evil Minion
+                [x] Register Conscripts
+                [x] Search Conscripts
+            [x] Stage2
+                [x] Deploy Hypnotik Payload
+                [x] Conscript Groups
+                    [x] Group Conscripts
+                    [x] Create Group
+                    [x] Delete Group
+                    [x] Search Groups
+            [x] Stage3
+                [x] Mission Instruction
+                [x] Conscript Archives
+                    [x] Archive Conscripts
+                    [x] Create Archive
+                    [x] Delete Archive
+                    [x] Search Archives
+            [x] HELP
+        [x] Wifi Commander
+            [x] Connect Wifi
+            [x] Disconnect Wifi
+            [x] Display Access Points
+        [x] Game Changer
+            [x] Compile Evil Minion
+            [x] Compile Hypnotik Payload
+            [x] Binary Minions
+                [x] Rename
+                [x] Remove
+                [x] Export
+            [x] Binary Payloads
+                [x] Rename
+                [x] Remove
+                [x] Export
+        [x] Control Panel
+            [x] Set-Safety-Flag,
+            [x] Set-Foreground-Flag,
+            [x] Set-Papertrail-Flag,
+            [x] Set-Conscript-User,
+            [x] Set-Conscript-Key,
+            [x] Set-Conscript-Identifiers,
+            [x] Set-Conscript-Addresses,
+            [x] Set-Mission-Instruction,
+            [x] Set-Port-Number,
+            [x] Set-Protocol,
+            [x] Set-Minion-Path,
+            [x] Set-Payload-Path,
+            [x] Set-Group-Labels,
+            [x] Set-Target,
+            [x] Set-Deprecated-Archive,
+            [x] Set-Search-Criteria,
+            [x] Set-Ftp-Template,
+            [x] Set-Ftp-Address,
+            [x] Set-Minion-Directory,
+            [x] Set-Payload-Directory,
+            [x] Set-Template-Directory,
+            [x] Set-Log-File,
+            [x] Set-Log-Lines,
+            [x] Set-Temporary-File,
+            [x] Install-Dependencies,
+        [x] Log Viewer
+        [:] Self Destruct
+
+    * Actions:
+        [x] Compile minion
+        [x] Compile payload
+        [x] Connect WiFi
+        [x] Setup FTP Server
+        [x] Deploy Minion
+        [x] Register Conscript
+        [x] Start Minion Listener
+        [x] Deploy Payload
+        [x] Group Conscripts
+        [x] Mission Instruction
+        [x] Archive Conscripts
+
+- Evil Yuri - Cargo -
+
+    * Notes:
+        Mission Instructions should be passed with whitespace characters replaced
+        by '[space]'.
+
+    * Actions:
+        [x] Launchpad (menu controller)
+            [x] Start-minion-listener
+            [x] Stop-minion-listener
+            [x] Deploy-minion
+            [x] Deploy-payload
+            [x] Conscript-Commander
+            [x] Setup FTP server
+        [x] Register-conscript
+        [x] Mission-instruction
+        [x] Group-conscripts (menu controller)
+            [x] Search Groups
+            [x] Create Group
+            [x] Delete Group
+            [x] Add Conscript To Group
+            [x] Remove Conscript From Group (rebase)
+            [x] Delete All Groups
+        [x] Archive-conscripts (menu controller)
+            [x] Search Archives
+            [x] Delete Archive
+            [x] Add Conscript To Archive
+        [x] Panic
+        [x] Interogate-conscripts
+        [x] Search-conscripts
+

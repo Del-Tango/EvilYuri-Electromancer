@@ -1,0 +1,91 @@
+#!/bin/bash
+#
+# Regards, the Alveare Solutions society,
+#
+# EVIL YURI
+
+declare -A EY_DEFAULT
+declare -A EY_LIB
+declare -A EY_SOURCE
+declare -A EY_CARGO
+
+# [ NOTE ]: Absolute directory path the current file is in.
+EY_DIRECTORY="$(
+    cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd
+)"
+CONF_FILE_PATH="$EY_DIRECTORY/conf/evil-yuri.conf"
+
+if [ ! -f "$CONF_FILE_PATH" ]; then
+    echo "[ WARNING ]: Config file ($CONF_FILE_PATH) not found."
+    exit 1
+else
+    echo "[ DEBUG ]: Sourcing config file ($CONF_FILE_PATH)"
+    source "$CONF_FILE_PATH"
+fi
+
+for script in ${!EY_SOURCE[@]}; do
+    source ${EY_SOURCE[$script]}
+    if [ $? -ne 0 ]; then
+        echo "[ NOK ]: Something went wrong."\
+            "Could not load ($script) script."
+    else
+        echo "[ OK ]: Successfully loaded ($script) script."
+    fi
+done
+
+for library in ${!EY_LIB[@]}; do
+    source ${EY_LIB[$library]}
+    if [ $? -ne 0 ]; then
+        echo "[ NOK ]: Something went wrong."\
+            "Could not load ($library) library."
+    else
+        echo "[ OK ]: Successfully loaded ($library) library."
+    fi
+done
+
+# INIT
+
+function init_evil_yuri_cli () {
+    project_setup
+    display_banner
+    init_menu "MainController"
+    return $?
+}
+
+function init_evil_yuri_util () {
+    ${EY_CARGO['evil-yuri']} $@
+    return $?
+}
+
+function init_evil_yuri_test () {
+    project_setup
+    run_test_suit
+}
+
+# MISCELLANEOUS
+
+for opt in "$@"
+do
+    case "$opt" in
+        '--CLI')
+            EY_RUNNING_MODE='CLI'
+            ;;
+        '-t'|'--test')
+            EY_RUNNING_MODE='TEST'
+            ;;
+    esac
+done
+
+case "$EY_RUNNING_MODE" in
+    'CLI')
+        init_evil_yuri_cli
+        ;;
+    'TEST')
+        init_evil_yuri_test
+        ;;
+    *)
+        init_evil_yuri_util
+        ;;
+esac
+
+exit $?

