@@ -45,7 +45,7 @@ Yuri also harvests the power of our WiFi Commander and Game Changer cargo script
             * Phone Home
             
             
-More info comming soon at: www.alvearesolutions.wordpress.com
+More info at: alvearesolutions.wordpress.com
 
 ** DISCLAIMER **
 
