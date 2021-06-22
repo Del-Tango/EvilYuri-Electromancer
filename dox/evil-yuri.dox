@@ -95,18 +95,21 @@ Master Mind     - Physical machine that Yuri runs on
 Commander       - Master Mind user
 Evil Minion     - Yuri's scout (acquires & reports intel on target machine)
 HYpnotiK        - Yuri's tool set (escalates privileges, sets up backdoor, hides processes, etc)
+Conscript       - Hypnotized subordinate machine
 Payload Server  - FTP server that the Conscript downloads the payload files from
 Minion Listener - Yuri's built-in server that listens for Minions phoning home
 
 -- Proxy Chain Usecase --
-                                            (EvilYuri runs here)
+                                                  (EvilYuri runs here)
 
-    | You | -> | Proxy1 | -> | Proxy2 | -> | MasterMind Machine |
-                                            __________|__________
-                                            |                   |
-                                     | Conscript1 |       | Conscript2 |
+    | Commander | -> | Proxy1 | -> | Proxy2 | -> | MasterMind Machine |
+                                                  __________|__________
+                                                  |                   |
+                                           | Conscript1 |       | Conscript2 |
 
-                                      (EvilMinion & HYpnotiK run here)
+                                             (EvilMinion & HYpnotiK run here)
+
+
 EOF
 
 

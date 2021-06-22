@@ -84,7 +84,7 @@ case "$EY_RUNNING_MODE" in
         init_evil_yuri_test
         ;;
     *)
-        init_evil_yuri_util
+        init_evil_yuri_util $@
         ;;
 esac
 

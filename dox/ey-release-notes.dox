@@ -36,7 +36,7 @@ New -
   through the backdoor.
 
 * Post-registration, Conscripted machines can be grouped together in subsets.
-  This is helpful when issuing mission instructions, one example would be when you
+  This is helpful when issuing mission instructions - one example would be when you
   want to issue commands based on machine operating syste, and you would have one
   group for Linux machines and another for Android machines.
 
