@@ -36,11 +36,6 @@ function load_project_logging_levels () {
     return $?
 }
 
-function load_safety () {
-    load_safety "$EY_SAFETY"
-    return $?
-}
-
 function load_project_cargo () {
     if [ ${#EY_CARGO[@]} -eq 0 ]; then
         warning_msg "No cargo scripts found docked to $EY_SCRIPT_NAME."
