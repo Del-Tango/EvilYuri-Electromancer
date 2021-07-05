@@ -1546,8 +1546,8 @@ function command_specific_conscripts () {
             generate_interogation_report "$conscript_record" "$MISSION"
         fi
     done
-    if [ ${#MISSION[@]} -ne 0 ]; then
-        if [ ${#MISSION[@]} -eq 0 ]; then
+    if [ ${#MISSION_FAILURE[@]} -ne 0 ]; then
+        if [ ${#MISSION_COMPLETE[@]} -eq 0 ]; then
             return 1
         fi
     fi
