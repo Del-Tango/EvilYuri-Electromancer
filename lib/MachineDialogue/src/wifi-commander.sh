@@ -29,6 +29,9 @@ else
 [ WARNING ]: No config file found to source!"
 fi
 
+PIPE_DHCPCD="${MD_DEFAULT['tmp-dir']}/wc-dhcpcd.pipe"
+PIPE_WPA="${MD_DEFAULT['tmp-dir']}/wc-wpa.pipe"
+
 for md_script in `ls ${WC_DIRECTORY} | grep -e '^md-'`; do
     source "${WC_DIRECTORY}/$md_script"
 done
